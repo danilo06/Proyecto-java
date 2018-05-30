@@ -1,0 +1,10 @@
+BEGIN;
+INSERT INTO employee VALUES ('111-11-1111', 'John', 'Smith', '1945-1-2', 'salariedEmployee', 'R&D');
+INSERT INTO employee VALUES ('222-22-2222', 'Sue', 'Jones', '1961-2-3', 'commissionEmployee', 'SALES');
+INSERT INTO employee VALUES ('333-33-3333', 'Bob', 'Lowis', '1958-10-5', 'basePlusCommissionEmployee', 'SALES');
+INSERT INTO employee VALUES ('444-44-4444', 'Karen', 'Price', '1972-5-25', 'hourlyEmployee', 'HR');
+INSERT INTO salariedEmployee VALUES ('111-11-1111', 2013.67, 0);
+INSERT INTO commissionEmployee VALUES ('222-22-2222', 10100, 0.05, 0);
+INSERT INTO basePlusCommissionEmployee VALUES ('333-33-3333', 5000, 0.04, 300, 0);
+INSERT INTO hourlyEmployee VALUES ('444-44-4444', 30, 35.5, 0);
+COMMIT;
