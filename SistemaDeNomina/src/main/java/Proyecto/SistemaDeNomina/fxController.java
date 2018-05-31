@@ -1,34 +1,26 @@
 package Proyecto.SistemaDeNomina;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.stage.Stage;
 
+public class fxController {
+	@FXML
+	private Button btnSiguiente;
 
-public class fxController{
+	@FXML
+	private Button btnAtras;
 
-    @FXML
-    private ResourceBundle resources;
-
-    @FXML
-    private URL location;
-
-    @FXML
-    private Button btnAgregar;
-
-
-    @FXML
-    void handleButtonAction(ActionEvent event) {
-    }
-
-    @FXML
-    void initialize() {
-        assert btnAgregar != null : "fx:id=\"btnAgregar\" was not injected: check your FXML file 'asd.fxml'.";
-
-
-    }
+	@FXML
+	void CAMBIAR(ActionEvent event) {
+		System.out.print("hello world");
+	}
 
 }
-
