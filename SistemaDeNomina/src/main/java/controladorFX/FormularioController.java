@@ -117,7 +117,6 @@ public class FormularioController implements Initializable {
 			float commission2 = (Float.parseFloat(txtPorcentajeComision.getText()))/100;
 			float salarioBasico = Float.parseFloat(txtSalarioBase.getText());
 			BasePluscommissionEmployees basePlusCommissionPerson = new BasePluscommissionEmployees(ventaTotal2, commission2, salarioBasico, bonus, txtNumeroSeguridadSocial.getText(), txtNombre.getText(), txtApellido.getText(), dateFechaNacimiento.getValue(), cboTipoEmpleado.getValue(), txtDepartamento.getText());
-			System.out.print(basePlusCommissionPerson.toString());
 			break;
 		default:
 			System.out.print("Error al cargar Tipo de empleado");
