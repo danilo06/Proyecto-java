@@ -1,4 +1,4 @@
-package Proyecto.SistemaDeNomina;
+package controladorFX;
 
 import java.net.URL;
 import java.util.ResourceBundle;

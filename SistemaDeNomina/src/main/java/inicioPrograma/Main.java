@@ -1,4 +1,4 @@
-package Proyecto.SistemaDeNomina;
+package inicioPrograma;
 	
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
