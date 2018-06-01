@@ -1,24 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="498.0" prefWidth="576.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="605.0" prefWidth="728.0" style="-fx-background-color: #0066ff;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
    <top>
-      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER_LEFT">
+      <HBox prefHeight="100.0" prefWidth="721.0" BorderPane.alignment="CENTER_LEFT">
          <children>
             <ImageView fitHeight="129.0" fitWidth="123.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/user.png" />
                </image>
             </ImageView>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="REGISTRO DE EMPLEADOS" textAlignment="CENTER" wrappingWidth="447.41748046875">
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="REGISTRO DE EMPLEADOS" textAlignment="CENTER" wrappingWidth="447.41748046875">
                <font>
                   <Font name="Arial Rounded MT Bold" size="33.0" />
                </font>
@@ -27,6 +37,226 @@
                </HBox.margin>
             </Text>
          </children>
+         <BorderPane.margin>
+            <Insets bottom="10.0" />
+         </BorderPane.margin>
       </HBox>
    </top>
+   <bottom>
+      <HBox alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="728.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button mnemonicParsing="false" prefHeight="39.0" prefWidth="88.0" text="LIMPIAR" textAlignment="CENTER">
+               <HBox.margin>
+                  <Insets right="20.0" />
+               </HBox.margin>
+            </Button>
+            <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="88.0" text="GUARDAR" textAlignment="CENTER">
+               <HBox.margin>
+                  <Insets right="20.0" />
+               </HBox.margin>
+            </Button>
+            <Button layoutX="81.0" layoutY="10.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="85.0" text="SALIR" textAlignment="CENTER">
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+         <opaqueInsets>
+            <Insets right="10.0" />
+         </opaqueInsets>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+      </HBox>
+   </bottom>
+   <center>
+      <ScrollPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <content>
+            <GridPane prefHeight="532.0" prefWidth="708.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="285.0" minWidth="10.0" prefWidth="188.3333282470703" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="296.0" minWidth="10.0" prefWidth="224.6666717529297" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="178.0" minWidth="10.0" prefWidth="105.6666259765625" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="184.3333740234375" minWidth="10.0" prefWidth="184.3333740234375" />
+              </columnConstraints>
+              <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="64.0" minHeight="10.0" prefHeight="18.0" vgrow="SOMETIMES" />
+                  <RowConstraints fillHeight="false" maxHeight="116.0" minHeight="10.0" prefHeight="19.0" vgrow="SOMETIMES" />
+                  <RowConstraints fillHeight="false" maxHeight="116.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints fillHeight="false" maxHeight="116.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints fillHeight="false" maxHeight="116.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints fillHeight="false" maxHeight="116.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label prefHeight="17.0" prefWidth="347.0" text="Primer Nombre:" textAlignment="RIGHT">
+                     <font>
+                        <Font name="Arial" size="19.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="10.0" layoutY="29.0" prefHeight="17.0" prefWidth="347.0" text="Ultimo Nombre:" textAlignment="RIGHT" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Arial" size="19.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="10.0" layoutY="29.0" prefHeight="22.0" prefWidth="178.0" text="N. Seguridad Social:" textAlignment="RIGHT" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="Arial" size="19.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="10.0" layoutY="29.0" prefHeight="17.0" prefWidth="347.0" text="Fecha de Nacimiento:" textAlignment="RIGHT" GridPane.rowIndex="3">
+                     <font>
+                        <Font name="Arial" size="19.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="10.0" layoutY="29.0" prefHeight="17.0" prefWidth="347.0" text="Tipo de Empleado:" textAlignment="RIGHT" GridPane.rowIndex="4">
+                     <font>
+                        <Font name="Arial" size="19.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="10.0" layoutY="29.0" prefHeight="17.0" prefWidth="347.0" text="Departamento:" textAlignment="RIGHT" GridPane.rowIndex="5">
+                     <font>
+                        <Font name="Arial" size="19.0" />
+                     </font>
+                  </Label>
+                  <DatePicker prefHeight="25.0" prefWidth="201.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets></DatePicker>
+                  <TextField GridPane.columnIndex="1">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets></TextField>
+                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets></TextField>
+                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="5">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets></TextField>
+                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets></TextField>
+                  <ImageView fitHeight="153.0" fitWidth="153.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets right="50.0" />
+                     </GridPane.margin>
+                     <image>
+                        <Image url="@../images/userIncognito.png" />
+                     </image>
+                  </ImageView>
+                  <ComboBox prefHeight="25.0" prefWidth="201.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </ComboBox>
+                  <Label alignment="BASELINE_LEFT" layoutX="15.0" layoutY="266.0" prefHeight="22.0" prefWidth="105.0" text="Sexo:" textAlignment="RIGHT" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                     <font>
+                        <Font name="Arial" size="19.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets left="10.0" />
+                     </opaqueInsets>
+                  </Label>
+                  <Label layoutX="432.0" layoutY="207.0" prefHeight="17.0" prefWidth="347.0" text="Estado Civil:" textAlignment="RIGHT" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                     <font>
+                        <Font name="Arial" size="19.0" />
+                     </font>
+                  </Label>
+                  <ComboBox prefHeight="25.0" prefWidth="164.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="4">
+                     <children>
+                        <RadioButton mnemonicParsing="false" prefHeight="17.0" prefWidth="84.0" text="Femenino">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="GroupSexo" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton mnemonicParsing="false" text="Masculino" toggleGroup="$GroupSexo" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #0066ff;" GridPane.rowIndex="6" />
+                  <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #0066ff;" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                  <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #0066ff;" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+                  <HBox prefHeight="43.0" prefWidth="184.0" style="-fx-background-color: #0066ff;" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+                  <Label layoutX="15.0" layoutY="219.0" prefHeight="17.0" prefWidth="347.0" text="Digite la informacion" textAlignment="RIGHT" GridPane.rowIndex="7">
+                     <font>
+                        <Font name="Arial" size="19.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="15.0" layoutY="346.0" prefHeight="17.0" prefWidth="347.0" text="empleado." textAlignment="RIGHT" GridPane.columnIndex="2" GridPane.rowIndex="7">
+                     <font>
+                        <Font name="Arial" size="19.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="15.0" layoutY="346.0" prefHeight="17.0" prefWidth="347.0" text="requerida segun el tipo de" textAlignment="RIGHT" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                     <font>
+                        <Font name="Arial" size="19.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="15.0" layoutY="209.0" prefHeight="17.0" prefWidth="347.0" text="Salario Base:" textAlignment="RIGHT" GridPane.rowIndex="8">
+                     <font>
+                        <Font name="Arial" size="19.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="17.0" prefWidth="347.0" text="Salario Semanal:" textAlignment="RIGHT" GridPane.rowIndex="10">
+                     <font>
+                        <Font name="Arial" size="19.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="15.0" layoutY="416.0" prefHeight="17.0" prefWidth="347.0" text="Porcentaje -Comision:" textAlignment="RIGHT" GridPane.rowIndex="11">
+                     <font>
+                        <Font name="Arial" size="19.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="15.0" layoutY="370.0" prefHeight="17.0" prefWidth="347.0" text="Ventas en Bruto:" textAlignment="RIGHT" GridPane.rowIndex="9">
+                     <font>
+                        <Font name="Arial" size="19.0" />
+                     </font>
+                  </Label>
+                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="11" />
+                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="10" />
+                  <Label layoutX="15.0" layoutY="370.0" prefHeight="17.0" prefWidth="347.0" text="Bono:" textAlignment="RIGHT" GridPane.columnIndex="2" GridPane.rowIndex="8">
+                     <font>
+                        <Font name="Arial" size="19.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets left="10.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label layoutX="428.0" layoutY="370.0" prefHeight="17.0" prefWidth="347.0" text="Horas:" textAlignment="RIGHT" GridPane.columnIndex="2" GridPane.rowIndex="9">
+                     <font>
+                        <Font name="Arial" size="19.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets left="10.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label layoutX="428.0" layoutY="416.0" prefHeight="17.0" prefWidth="347.0" text="Salario:" textAlignment="RIGHT" GridPane.columnIndex="2" GridPane.rowIndex="10">
+                     <font>
+                        <Font name="Arial" size="19.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets left="10.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <TextField GridPane.columnIndex="3" GridPane.rowIndex="8" />
+                  <TextField GridPane.columnIndex="3" GridPane.rowIndex="9" />
+                  <TextField GridPane.columnIndex="3" GridPane.rowIndex="10" />
+               </children>
+               <padding>
+                  <Insets left="5.0" />
+               </padding>
+            </GridPane>
+         </content>
+      </ScrollPane>
+   </center>
 </BorderPane>
