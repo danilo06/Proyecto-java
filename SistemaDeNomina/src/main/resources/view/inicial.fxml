@@ -19,7 +19,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="605.0" prefWidth="728.0" style="-fx-background-color: #0066ff;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="605.0" prefWidth="728.0" style="-fx-background-color: #0066ff;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Proyecto.SistemaDeNomina.FormularioController">
    <top>
       <HBox prefHeight="100.0" prefWidth="721.0" BorderPane.alignment="CENTER_LEFT">
          <children>
@@ -45,17 +45,17 @@
    <bottom>
       <HBox alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="728.0" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" prefHeight="39.0" prefWidth="88.0" text="LIMPIAR" textAlignment="CENTER">
+            <Button fx:id="btnLimpiar" mnemonicParsing="false" onAction="#limpiarPantalla" prefHeight="39.0" prefWidth="88.0" text="LIMPIAR" textAlignment="CENTER">
                <HBox.margin>
                   <Insets right="20.0" />
                </HBox.margin>
             </Button>
-            <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="88.0" text="GUARDAR" textAlignment="CENTER">
+            <Button fx:id="btnGuardar" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#guardarDatos" prefHeight="38.0" prefWidth="88.0" text="GUARDAR" textAlignment="CENTER">
                <HBox.margin>
                   <Insets right="20.0" />
                </HBox.margin>
             </Button>
-            <Button layoutX="81.0" layoutY="10.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="85.0" text="SALIR" textAlignment="CENTER">
+            <Button fx:id="btnSalir" layoutX="81.0" layoutY="10.0" mnemonicParsing="false" onAction="#salir" prefHeight="39.0" prefWidth="85.0" text="SALIR" textAlignment="CENTER">
                <HBox.margin>
                   <Insets right="10.0" />
                </HBox.margin>
@@ -94,12 +94,12 @@
                   <RowConstraints fillHeight="false" maxHeight="116.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Label prefHeight="17.0" prefWidth="347.0" text="Primer Nombre:" textAlignment="RIGHT">
+                  <Label prefHeight="17.0" prefWidth="347.0" text="Nombre:" textAlignment="RIGHT">
                      <font>
                         <Font name="Arial" size="19.0" />
                      </font>
                   </Label>
-                  <Label layoutX="10.0" layoutY="29.0" prefHeight="17.0" prefWidth="347.0" text="Ultimo Nombre:" textAlignment="RIGHT" GridPane.rowIndex="1">
+                  <Label layoutX="10.0" layoutY="29.0" prefHeight="17.0" prefWidth="347.0" text="Apellido:" textAlignment="RIGHT" GridPane.rowIndex="1">
                      <font>
                         <Font name="Arial" size="19.0" />
                      </font>
@@ -124,23 +124,23 @@
                         <Font name="Arial" size="19.0" />
                      </font>
                   </Label>
-                  <DatePicker prefHeight="25.0" prefWidth="201.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                  <DatePicker fx:id="dateFechaNacimiento" prefHeight="25.0" prefWidth="201.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets></DatePicker>
-                  <TextField GridPane.columnIndex="1">
+                  <TextField fx:id="txtNombre" GridPane.columnIndex="1">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets></TextField>
-                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <TextField fx:id="txtApellido" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets></TextField>
-                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="5">
+                  <TextField fx:id="txtDepartamento" GridPane.columnIndex="1" GridPane.rowIndex="5">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets></TextField>
-                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="2">
+                  <TextField fx:id="txtNumeroSeguridadSocial" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets></TextField>
@@ -152,7 +152,7 @@
                         <Image url="@../images/userIncognito.png" />
                      </image>
                   </ImageView>
-                  <ComboBox prefHeight="25.0" prefWidth="201.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                  <ComboBox fx:id="cboTipoEmpleado" prefHeight="25.0" prefWidth="201.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
@@ -170,15 +170,15 @@
                         <Font name="Arial" size="19.0" />
                      </font>
                   </Label>
-                  <ComboBox prefHeight="25.0" prefWidth="164.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                  <ComboBox fx:id="cboEstadoCivil" prefHeight="25.0" prefWidth="164.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="4">
                      <children>
-                        <RadioButton mnemonicParsing="false" prefHeight="17.0" prefWidth="84.0" text="Femenino">
+                        <RadioButton fx:id="rbFemenino" mnemonicParsing="false" prefHeight="17.0" prefWidth="84.0" text="Femenino">
                            <toggleGroup>
                               <ToggleGroup fx:id="GroupSexo" />
                            </toggleGroup>
                         </RadioButton>
-                        <RadioButton mnemonicParsing="false" text="Masculino" toggleGroup="$GroupSexo" />
+                        <RadioButton fx:id="rbMasculino" mnemonicParsing="false" text="Masculino" toggleGroup="$GroupSexo" />
                      </children>
                   </HBox>
                   <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #0066ff;" GridPane.rowIndex="6" />
@@ -220,10 +220,10 @@
                         <Font name="Arial" size="19.0" />
                      </font>
                   </Label>
-                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="8" />
-                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="9" />
-                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="11" />
-                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="10" />
+                  <TextField fx:id="txtSalarioBase" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                  <TextField fx:id="txtVentasBruto" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                  <TextField fx:id="txtPorcentajeComision" GridPane.columnIndex="1" GridPane.rowIndex="11" />
+                  <TextField fx:id="txtSalarioSemanal" GridPane.columnIndex="1" GridPane.rowIndex="10" />
                   <Label layoutX="15.0" layoutY="370.0" prefHeight="17.0" prefWidth="347.0" text="Bono:" textAlignment="RIGHT" GridPane.columnIndex="2" GridPane.rowIndex="8">
                      <font>
                         <Font name="Arial" size="19.0" />
@@ -248,9 +248,9 @@
                         <Insets left="10.0" />
                      </GridPane.margin>
                   </Label>
-                  <TextField GridPane.columnIndex="3" GridPane.rowIndex="8" />
-                  <TextField GridPane.columnIndex="3" GridPane.rowIndex="9" />
-                  <TextField GridPane.columnIndex="3" GridPane.rowIndex="10" />
+                  <TextField fx:id="txtBono" GridPane.columnIndex="3" GridPane.rowIndex="8" />
+                  <TextField fx:id="txtHoras" GridPane.columnIndex="3" GridPane.rowIndex="9" />
+                  <TextField fx:id="txtSalario" GridPane.columnIndex="3" GridPane.rowIndex="10" />
                </children>
                <padding>
                   <Insets left="5.0" />
