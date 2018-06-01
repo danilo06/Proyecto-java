@@ -2,16 +2,16 @@ package classEmployees;
 
 import java.time.LocalDate;
 
-public class commissionEmployees extends Employees {
+public class CommissionEmployees extends Employees {
 	private int grossSales = 0;
 	private float CommissionRate = 0;
 	private float bonus = 0;
 
-	public commissionEmployees() {
+	public CommissionEmployees() {
 
 	}
 
-	public commissionEmployees(int grossSales, float commissionRate, float bonus,String socialSecurityNumber, String firstName, String lastName, LocalDate birthday,
+	public CommissionEmployees(int grossSales, float commissionRate, float bonus,String socialSecurityNumber, String firstName, String lastName, LocalDate birthday,
 			String employeeType, String departmentName) {
 		super();
 		this.grossSales = grossSales;

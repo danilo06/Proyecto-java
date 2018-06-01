@@ -11,6 +11,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import classEmployees.*;
 
 public class FormularioController implements Initializable {
 
@@ -73,11 +74,11 @@ public class FormularioController implements Initializable {
 
 	@FXML
 	private TextField txtSalario;
-	
+
 	@Override
-	
+
 	public void initialize(URL location, ResourceBundle resources) {
-		
+
 		cboEstadoCivil.getItems().add("Soltero");
 		cboEstadoCivil.getItems().add("Casado");
 		cboEstadoCivil.getItems().add("Viudo");
@@ -88,24 +89,43 @@ public class FormularioController implements Initializable {
 		cboTipoEmpleado.getItems().add("Empleado por hora");
 		cboTipoEmpleado.getItems().add("Empleado Sueldo Base + Comision");
 		System.out.print("hello world");
-		
+
 	}
-	
+
 	@FXML
 	void guardarDatos(ActionEvent event) {
-		
-	  
+		System.out.println("DAtos de prueba:");
+		int num;
+		String nombre;
+		nombre = txtNombre.getText();
+		num = txtNumeroSeguridadSocial.getPrefColumnCount();
+		System.out.print("Nombre: "+ nombre + "Seguridad Social: " + num);
+		switch (cboTipoEmpleado.getValue()){
+		case "Empleado Asalariado":
+			SalariedEmployees salariedPerson = new SalariedEmployees();
+			break;
+		case "Empleado por Comision":
+			CommissionEmployees commissionPerson = new CommissionEmployees();
+			break;
+		case "Empleado por hora":
+			HourlEmployees hourPerson = new HourlEmployees();
+			break;
+		case "Empleado Sueldo Base + Comision":
+			BasePluscommissionEmployees basePlusCommissionPerson = new BasePluscommissionEmployees();
+			break;
+		default:
+			System.out.print("Error al cargar Tipo de empleado");
+			break;
+		}
 	}
-	
+
 	@FXML
 	void limpiarPantalla(ActionEvent event) {
-
 	}
 
 	@FXML
 	void salir(ActionEvent event) {
 
 	}
-	
 
 }
