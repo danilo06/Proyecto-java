@@ -40,4 +40,13 @@ public class SalariedEmployees extends Employees {
 		this.bonus = bonus;
 	}
 
+	@Override
+	public String toString() {
+		return "SalariedEmployees [weeklySalary=" + weeklySalary + ", bonus=" + bonus + ", socialSecurityNumber="
+				+ socialSecurityNumber + ", firstName=" + firstName + ", lastName=" + lastName + ", birthday="
+				+ birthday + ", employeeType=" + employeeType + ", departmentName=" + departmentName + "]";
+	}
+	
+	
+
 }

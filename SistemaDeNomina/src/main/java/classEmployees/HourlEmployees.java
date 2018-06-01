@@ -50,4 +50,12 @@ public class HourlEmployees extends Employees {
 		this.bonus = bonus;
 	}
 
+	@Override
+	public String toString() {
+		return "HourlEmployees [hours=" + hours + ", wage=" + wage + ", bonus=" + bonus + ", socialSecurityNumber="
+				+ socialSecurityNumber + ", firstName=" + firstName + ", lastName=" + lastName + ", birthday="
+				+ birthday + ", employeeType=" + employeeType + ", departmentName=" + departmentName + "]";
+	}
+	
+
 }

@@ -50,4 +50,15 @@ public class CommissionEmployees extends Employees {
 		this.bonus = bonus;
 	}
 
+	@Override
+	public String toString() {
+		return "CommissionEmployees [grossSales=" + grossSales + ", CommissionRate=" + CommissionRate + ", bonus="
+				+ bonus + ", socialSecurityNumber=" + socialSecurityNumber + ", firstName=" + firstName + ", lastName="
+				+ lastName + ", birthday=" + birthday + ", employeeType=" + employeeType + ", departmentName="
+				+ departmentName + "]";
+	}
+
+	
+	
+
 }

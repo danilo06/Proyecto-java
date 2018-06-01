@@ -79,6 +79,7 @@ public class FormularioController implements Initializable {
 
 	public void initialize(URL location, ResourceBundle resources) {
 
+
 		cboEstadoCivil.getItems().add("Soltero");
 		cboEstadoCivil.getItems().add("Casado");
 		cboEstadoCivil.getItems().add("Viudo");
@@ -88,30 +89,35 @@ public class FormularioController implements Initializable {
 		cboTipoEmpleado.getItems().add("Empleado por Comision");
 		cboTipoEmpleado.getItems().add("Empleado por hora");
 		cboTipoEmpleado.getItems().add("Empleado Sueldo Base + Comision");
-		System.out.print("hello world");
+		cboTipoEmpleado.getSelectionModel().select(0);
 
 	}
 
 	@FXML
 	void guardarDatos(ActionEvent event) {
-		System.out.println("DAtos de prueba:");
-		int num;
-		String nombre;
-		nombre = txtNombre.getText();
-		num = txtNumeroSeguridadSocial.getPrefColumnCount();
-		System.out.print("Nombre: "+ nombre + "Seguridad Social: " + num);
-		switch (cboTipoEmpleado.getValue()){
+		float bonus = Float.parseFloat(txtBono.getText());
+		switch (cboTipoEmpleado.getValue()) {
 		case "Empleado Asalariado":
-			SalariedEmployees salariedPerson = new SalariedEmployees();
+			float salarioSemanal = Float.parseFloat(txtSalarioSemanal.getText());
+			SalariedEmployees salariedPerson = new SalariedEmployees(salarioSemanal, bonus, txtNumeroSeguridadSocial.getText(), txtNombre.getText(), txtApellido.getText(), dateFechaNacimiento.getValue(), cboTipoEmpleado.getValue(), txtDepartamento.getText());
 			break;
 		case "Empleado por Comision":
-			CommissionEmployees commissionPerson = new CommissionEmployees();
+			int ventaTotal = Integer.parseInt(txtVentasBruto.getText());
+			float commission = (Float.parseFloat(txtPorcentajeComision.getText()))/100;
+			CommissionEmployees commissionPerson = new CommissionEmployees(ventaTotal, commission, bonus, txtNumeroSeguridadSocial.getText(), txtNombre.getText(), txtApellido.getText(), dateFechaNacimiento.getValue(), cboTipoEmpleado.getValue(), txtDepartamento.getText() );
 			break;
 		case "Empleado por hora":
-			HourlEmployees hourPerson = new HourlEmployees();
+			int horas = Integer.parseInt(txtHoras.getText());
+			float salario = Float.parseFloat(txtSalario.getText());
+
+			HourlEmployees hourPerson = new HourlEmployees(horas, salario, bonus, txtNumeroSeguridadSocial.getText(), txtNombre.getText(), txtApellido.getText(), dateFechaNacimiento.getValue(), cboTipoEmpleado.getValue(), txtDepartamento.getText());
 			break;
 		case "Empleado Sueldo Base + Comision":
-			BasePluscommissionEmployees basePlusCommissionPerson = new BasePluscommissionEmployees();
+			int ventaTotal2 = Integer.parseInt(txtVentasBruto.getText());
+			float commission2 = (Float.parseFloat(txtPorcentajeComision.getText()))/100;
+			float salarioBasico = Float.parseFloat(txtSalarioBase.getText());
+			BasePluscommissionEmployees basePlusCommissionPerson = new BasePluscommissionEmployees(ventaTotal2, commission2, salarioBasico, bonus, txtNumeroSeguridadSocial.getText(), txtNombre.getText(), txtApellido.getText(), dateFechaNacimiento.getValue(), cboTipoEmpleado.getValue(), txtDepartamento.getText());
+			System.out.print(basePlusCommissionPerson.toString());
 			break;
 		default:
 			System.out.print("Error al cargar Tipo de empleado");
@@ -121,6 +127,20 @@ public class FormularioController implements Initializable {
 
 	@FXML
 	void limpiarPantalla(ActionEvent event) {
+		txtBono.clear();
+		txtBono.clear();
+		txtHoras.clear();
+		txtNombre.clear();
+		txtSalario.clear();
+		txtApellido.clear();
+		txtSalarioBase.clear();
+		txtVentasBruto.clear();
+		txtDepartamento.clear();
+		txtSalarioSemanal.clear();
+		txtPorcentajeComision.clear();
+		txtNumeroSeguridadSocial.clear();
+		cboEstadoCivil.getSelectionModel().select(0);
+		cboTipoEmpleado.getSelectionModel().select(0);
 	}
 
 	@FXML
