@@ -1,12 +1,12 @@
 package classEmployees;
 
-import java.time.LocalDate;
+import java.sql.Date;
 
 public class Employees {
 	protected String socialSecurityNumber;
 	protected String firstName;
 	protected String lastName;
-	protected LocalDate birthday;
+	protected Date birthday;
 	protected String employeeType;
 	protected String departmentName;
 
@@ -14,7 +14,7 @@ public class Employees {
 
 	}
 
-	public Employees(String socialSecurityNumber, String firstName, String lastName, LocalDate birthday,
+	public Employees(String socialSecurityNumber, String firstName, String lastName, Date birthday,
 			String employeeType, String departmentName) {
 		super();
 		this.socialSecurityNumber = socialSecurityNumber;
@@ -49,11 +49,11 @@ public class Employees {
 		this.lastName = lastName;
 	}
 
-	public LocalDate getBirthday() {
+	public Date getBirthday() {
 		return birthday;
 	}
 
-	public void setBirthday(LocalDate birthday) {
+	public void setBirthday(Date birthday) {
 		this.birthday = birthday;
 	}
 

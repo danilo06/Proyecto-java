@@ -1,5 +1,5 @@
 package controladorFX;
-
+import java.sql.Date;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
@@ -11,9 +11,15 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.Alert.AlertType;
 import classEmployees.*;
+import connection.*;
+
+
 
 public class FormularioController implements Initializable {
+	
+	private final InsertTable personQueries = new InsertTable();
 
 	@FXML
 	private Button btnLimpiar;
@@ -96,27 +102,45 @@ public class FormularioController implements Initializable {
 	@FXML
 	void guardarDatos(ActionEvent event) {
 		float bonus = Float.parseFloat(txtBono.getText());
+		
+		java.sql.Date dateNacimiento = java.sql.Date.valueOf(dateFechaNacimiento.getValue());
+		
 		switch (cboTipoEmpleado.getValue()) {
 		case "Empleado Asalariado":
 			float salarioSemanal = Float.parseFloat(txtSalarioSemanal.getText());
-			SalariedEmployees salariedPerson = new SalariedEmployees(salarioSemanal, bonus, txtNumeroSeguridadSocial.getText(), txtNombre.getText(), txtApellido.getText(), dateFechaNacimiento.getValue(), cboTipoEmpleado.getValue(), txtDepartamento.getText());
+			SalariedEmployees salariedPerson = new SalariedEmployees(salarioSemanal, bonus, txtNumeroSeguridadSocial.getText(), txtNombre.getText(), txtApellido.getText(), dateNacimiento, cboTipoEmpleado.getValue(), txtDepartamento.getText());
+			//---------------------------------------------
+			int result = personQueries.addPerson(salariedPerson.getSocialSecurityNumber(),
+			         salariedPerson.getFirstName(), salariedPerson.getLastName(), 
+			         salariedPerson.getBirthday(),salariedPerson.getEmployeeType(),salariedPerson.getDepartmentName());                                     
+			      
+			      if (result == 1) {
+			         System.out.print("Agregado");
+			      }
+			      else {
+			    	  System.out.print("No Agregado");
+			      }
+			
+			
+			//------------------------------------------------
 			break;
 		case "Empleado por Comision":
 			int ventaTotal = Integer.parseInt(txtVentasBruto.getText());
 			float commission = (Float.parseFloat(txtPorcentajeComision.getText()))/100;
-			CommissionEmployees commissionPerson = new CommissionEmployees(ventaTotal, commission, bonus, txtNumeroSeguridadSocial.getText(), txtNombre.getText(), txtApellido.getText(), dateFechaNacimiento.getValue(), cboTipoEmpleado.getValue(), txtDepartamento.getText() );
+	
+			CommissionEmployees commissionPerson = new CommissionEmployees(ventaTotal, commission, bonus, txtNumeroSeguridadSocial.getText(), txtNombre.getText(), txtApellido.getText(), dateNacimiento, cboTipoEmpleado.getValue(), txtDepartamento.getText() );
 			break;
 		case "Empleado por hora":
 			int horas = Integer.parseInt(txtHoras.getText());
 			float salario = Float.parseFloat(txtSalario.getText());
-
-			HourlEmployees hourPerson = new HourlEmployees(horas, salario, bonus, txtNumeroSeguridadSocial.getText(), txtNombre.getText(), txtApellido.getText(), dateFechaNacimiento.getValue(), cboTipoEmpleado.getValue(), txtDepartamento.getText());
+			HourlEmployees hourPerson = new HourlEmployees(horas, salario, bonus, txtNumeroSeguridadSocial.getText(), txtNombre.getText(), txtApellido.getText(), dateNacimiento, cboTipoEmpleado.getValue(), txtDepartamento.getText());
 			break;
 		case "Empleado Sueldo Base + Comision":
 			int ventaTotal2 = Integer.parseInt(txtVentasBruto.getText());
 			float commission2 = (Float.parseFloat(txtPorcentajeComision.getText()))/100;
 			float salarioBasico = Float.parseFloat(txtSalarioBase.getText());
-			BasePluscommissionEmployees basePlusCommissionPerson = new BasePluscommissionEmployees(ventaTotal2, commission2, salarioBasico, bonus, txtNumeroSeguridadSocial.getText(), txtNombre.getText(), txtApellido.getText(), dateFechaNacimiento.getValue(), cboTipoEmpleado.getValue(), txtDepartamento.getText());
+			BasePluscommissionEmployees basePlusCommissionPerson = new BasePluscommissionEmployees(ventaTotal2, commission2, salarioBasico, bonus, txtNumeroSeguridadSocial.getText(), txtNombre.getText(), txtApellido.getText(), dateNacimiento, cboTipoEmpleado.getValue(), txtDepartamento.getText());
+			
 			break;
 		default:
 			System.out.print("Error al cargar Tipo de empleado");

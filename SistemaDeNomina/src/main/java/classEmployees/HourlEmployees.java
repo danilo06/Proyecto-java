@@ -1,6 +1,8 @@
 package classEmployees;
 
-import java.time.LocalDate;
+import java.sql.Date;
+
+
 
 public class HourlEmployees extends Employees {
 	private int hours = 0;
@@ -11,7 +13,7 @@ public class HourlEmployees extends Employees {
 
 	}
 
-	public HourlEmployees(int hours, float wage, float bonus,String socialSecurityNumber, String firstName, String lastName, LocalDate birthday,
+	public HourlEmployees(int hours, float wage, float bonus,String socialSecurityNumber, String firstName, String lastName, Date birthday,
 			String employeeType, String departmentName) {
 		super();
 		this.hours = hours;

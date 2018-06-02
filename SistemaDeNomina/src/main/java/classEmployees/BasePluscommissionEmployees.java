@@ -1,6 +1,6 @@
 package classEmployees;
 
-import java.time.LocalDate;
+import java.sql.Date;
 
 public class BasePluscommissionEmployees extends Employees {
 	private int grossSales = 0;
@@ -12,7 +12,7 @@ public class BasePluscommissionEmployees extends Employees {
 
 	}
 
-	public BasePluscommissionEmployees(int grossSales, float commissionRate, float baseSalary, float bonus,String socialSecurityNumber, String firstName, String lastName, LocalDate birthday,
+	public BasePluscommissionEmployees(int grossSales, float commissionRate, float baseSalary, float bonus,String socialSecurityNumber, String firstName, String lastName, Date birthday,
 			String employeeType, String departmentName) {
 		super();
 		this.grossSales = grossSales;

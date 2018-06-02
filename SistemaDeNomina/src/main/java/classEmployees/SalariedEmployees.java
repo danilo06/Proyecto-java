@@ -1,6 +1,6 @@
 package classEmployees;
 
-import java.time.LocalDate;
+import java.sql.Date;
 
 public class SalariedEmployees extends Employees {
 	private float weeklySalary = 0;
@@ -10,7 +10,7 @@ public class SalariedEmployees extends Employees {
 
 	}
 
-	public SalariedEmployees(float weeklySalary, float bonus,String socialSecurityNumber, String firstName, String lastName, LocalDate birthday,
+	public SalariedEmployees(float weeklySalary, float bonus,String socialSecurityNumber, String firstName, String lastName, Date birthday,
 			String employeeType, String departmentName) {
 		super();
 		this.weeklySalary = weeklySalary;
