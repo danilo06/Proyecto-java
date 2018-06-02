@@ -112,8 +112,7 @@ public class FormularioController implements Initializable {
 			//---------------------------------------------
 			int result = personQueries.addPerson(salariedPerson.getSocialSecurityNumber(),
 			         salariedPerson.getFirstName(), salariedPerson.getLastName(), 
-			         salariedPerson.getBirthday(),salariedPerson.getEmployeeType(),salariedPerson.getDepartmentName());                                     
-			      
+			         salariedPerson.getBirthday(),salariedPerson.getEmployeeType(),salariedPerson.getDepartmentName());
 			      if (result == 1) {
 			         System.out.print("Agregado");
 			      }

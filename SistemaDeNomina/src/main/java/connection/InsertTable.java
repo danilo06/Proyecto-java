@@ -4,10 +4,7 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
 
 public class InsertTable {
@@ -22,14 +19,7 @@ public class InsertTable {
 		try {
 			connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
 			insertNewPerson = connection.prepareStatement(
-					"INSERT INTO `dbeleno86`.`employee` " + 
-					"(`socialSecurityNumber`, " + 
-					"`firstName`, " + 
-					"`lastName`, " + 
-					"`birthday`, " + 
-					"`employeeType`, " + 
-					"`departmentName`) " + 
-					"VALUES ( ?, ?, ?, ?, ?, ? )");
+					"INSERT INTO employee " + "(socialSecurityNumber, firstName, lastName, birthday, employeeType, departmentName) " + "VALUES ( ?, ?, ?, ?, ?, ?)");
 		}
 		catch (SQLException sqlException) {
 			sqlException.printStackTrace();
