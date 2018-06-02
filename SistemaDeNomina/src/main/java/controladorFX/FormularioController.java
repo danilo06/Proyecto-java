@@ -1,5 +1,4 @@
 package controladorFX;
-import java.sql.Date;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
@@ -11,7 +10,6 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
-import javafx.scene.control.Alert.AlertType;
 import classEmployees.*;
 import connection.*;
 
@@ -109,7 +107,7 @@ public class FormularioController implements Initializable {
 		case "Empleado Asalariado":
 			float salarioSemanal = Float.parseFloat(txtSalarioSemanal.getText());
 			SalariedEmployees salariedPerson = new SalariedEmployees(salarioSemanal, bonus, txtNumeroSeguridadSocial.getText(), txtNombre.getText(), txtApellido.getText(), dateNacimiento, cboTipoEmpleado.getValue(), txtDepartamento.getText());
-			//---------------------------------------------
+			
 			int result = personQueries.addPerson(salariedPerson.getSocialSecurityNumber(),
 			         salariedPerson.getFirstName(), salariedPerson.getLastName(), 
 			         salariedPerson.getBirthday(),salariedPerson.getEmployeeType(),salariedPerson.getDepartmentName());
@@ -119,9 +117,6 @@ public class FormularioController implements Initializable {
 			      else {
 			    	  System.out.print("No Agregado");
 			      }
-			
-			
-			//------------------------------------------------
 			break;
 		case "Empleado por Comision":
 			int ventaTotal = Integer.parseInt(txtVentasBruto.getText());
