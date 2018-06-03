@@ -23,50 +23,102 @@ public class ConsultarConsola {
 			rowSet.setUrl(DATABASE_URL); // set database URL
 			rowSet.setUsername(USERNAME); // set username
 			rowSet.setPassword(PASSWORD); // set password
+			System.out.println("--------------------------------------------------");
 			rowSet.setCommand("SELECT * FROM employee"); // set query
 			rowSet.execute(); // execute query
 
-			// process query results
 			ResultSetMetaData metaData = rowSet.getMetaData();
 			int numberOfColumns = metaData.getColumnCount();
 			System.out.println("Employee Table of Books Database:\n");
 
-			// display rowset header
 			for (int i = 1; i <= numberOfColumns; i++)
 				System.out.printf("%-8s\t", metaData.getColumnName(i));
 			System.out.println();
 
-			// display each row
 			while (rowSet.next()) {
 				for (int i = 1; i <= numberOfColumns; i++)
 					System.out.printf("%-8s\t", rowSet.getObject(i));
 				System.out.println();
-			} // end while
+			}
+			System.out.println("--------------------------------------------------");
+			rowSet.setCommand("SELECT * FROM salariedEmployee");
+			rowSet.execute(); // execute query
 
-			// close the underlying ResultSet, Statement and Connection
+			ResultSetMetaData metaData2 = rowSet.getMetaData();
+			int numberOfColumns2 = metaData2.getColumnCount();
+			System.out.println("salariedEmployee Table of Books Database:\n");
+
+			for (int i = 1; i <= numberOfColumns2; i++)
+				System.out.printf("%-8s\t", metaData2.getColumnName(i));
+			System.out.println();
+
+			while (rowSet.next()) {
+				for (int i = 1; i <= numberOfColumns2; i++)
+					System.out.printf("%-8s\t", rowSet.getObject(i));
+				System.out.println();
+			}
+			System.out.println("--------------------------------------------------");
+			rowSet.setCommand("SELECT * FROM commissionEmployee");
+			rowSet.execute(); // execute query
+
+			ResultSetMetaData metaData3 = rowSet.getMetaData();
+			int numberOfColumns3 = metaData3.getColumnCount();
+			System.out.println("commissionEmployee Table of Books Database:\n");
+
+			for (int i = 1; i <= numberOfColumns3; i++)
+				System.out.printf("%-8s\t", metaData3.getColumnName(i));
+			System.out.println();
+
+			while (rowSet.next()) {
+				for (int i = 1; i <= numberOfColumns3; i++)
+					System.out.printf("%-8s\t", rowSet.getObject(i));
+				System.out.println();
+			}
+			System.out.println("--------------------------------------------------");
+			rowSet.setCommand("SELECT * FROM basePlusCommissionEmployee");
+			rowSet.execute(); // execute query
+
+			ResultSetMetaData metaData4 = rowSet.getMetaData();
+			int numberOfColumns4 = metaData4.getColumnCount();
+			System.out.println("basePlusCommissionEmployee Table of Books Database:\n");
+
+			for (int i = 1; i <= numberOfColumns4; i++)
+				System.out.printf("%-8s\t", metaData4.getColumnName(i));
+			System.out.println();
+
+			while (rowSet.next()) {
+				for (int i = 1; i <= numberOfColumns4; i++)
+					System.out.printf("%-8s\t", rowSet.getObject(i));
+				System.out.println();
+			}
+			System.out.println("--------------------------------------------------");
+			rowSet.setCommand("SELECT * FROM hourlyEmployee");
+			rowSet.execute(); // execute query
+
+			ResultSetMetaData metaData5 = rowSet.getMetaData();
+			int numberOfColumns5 = metaData5.getColumnCount();
+			System.out.println("hourlyEmployee Table of Books Database:\n");
+
+			for (int i = 1; i <= numberOfColumns5; i++)
+				System.out.printf("%-8s\t", metaData5.getColumnName(i));
+			System.out.println();
+
+			while (rowSet.next()) {
+				for (int i = 1; i <= numberOfColumns5; i++)
+					System.out.printf("%-8s\t", rowSet.getObject(i));
+				System.out.println();
+			}
+
+			
 			rowSet.close();
-		} // end try
+		} 
 		catch (SQLException sqlException) {
 			sqlException.printStackTrace();
 			System.exit(1);
-		} // end catch
-	} // end DisplayAuthors constructor
+		}
+	} 
 
-	// launch the application
 	public static void main(String args[]) {
 		ConsultarConsola application = new ConsultarConsola();
-	} // end main
-} // end class JdbcRowSetTest
-
-/**************************************************************************
- * (C) Copyright 1992-2012 by Deitel & Associates, Inc. and * Pearson Education,
- * Inc. All Rights Reserved. * * DISCLAIMER: The authors and publisher of this
- * book have used their * best efforts in preparing the book. These efforts
- * include the * development, research, and testing of the theories and programs
- * * to determine their effectiveness. The authors and publisher make * no
- * warranty of any kind, expressed or implied, with regard to these * programs
- * or to the documentation contained in these books. The authors * and publisher
- * shall not be liable in any event for incidental or * consequential damages in
- * connection with, or arising out of, the * furnishing, performance, or use of
- * these programs. *
- *************************************************************************/
+	}
+} 
