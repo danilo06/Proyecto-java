@@ -2,3 +2,7 @@
 /controlador/
 /modelo/
 /vista/
+/crearTablaATM.sql
+/insertarATM.sql
+/connection/
+/connection.properties
