@@ -200,7 +200,7 @@ public class FormularioController implements Initializable {
 
 	@FXML
 	void salir(ActionEvent event) {
-		
+		System.exit(0);
 	}
 
 }
