@@ -10,20 +10,22 @@ public class Prueba {
 	
 	public static void main(String[] args) {
 		int valor = 0;
-		PersonQueries este = new PersonQueries();
+		AccountQueries este = new AccountQueries();
 		List <Cuenta>datos = new ArrayList<Cuenta>();
 		List <Cuenta>datos2 = new ArrayList<Cuenta>();
 		datos = este.getAllCuenta();
 		System.out.print(datos);
-		System.out.print("\n-------------------------------");
+		System.out.println("\n-------------------------------");
 		System.out.print("Valor cuenta: ");
 		valor = entrada.nextInt();
-		datos2= este.getCuenta(valor);
-		System.out.print(datos2);
-		
-		Cuenta cuenta = new Cuenta();
-		cuenta = datos2.get(0);
-		System.out.print(cuenta.obtenerNumeroCuenta());
+		Cuenta cuenta = este.getCuenta(valor);
+		if (cuenta == null)
+		{
+			System.out.println("Lista vacia");
+		}else
+		{
+			System.out.println("Numero de cuenta: "+ cuenta.obtenerNumeroCuenta());
+		}
 		
 	}
 

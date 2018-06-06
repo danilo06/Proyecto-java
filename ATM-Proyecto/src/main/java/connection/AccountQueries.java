@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import modelo.Cuenta;
 
-public class PersonQueries {
+public class AccountQueries {
 	private static final String URL = DbPropertiesReader.getString("db.url");
 	static final String USERNAME = DbPropertiesReader.getString("db.user");
 	static final String PASSWORD = DbPropertiesReader.getString("db.password");
@@ -22,7 +22,7 @@ public class PersonQueries {
 	private PreparedStatement selectAccount = null;
 
 	// constructor
-	public PersonQueries() {
+	public AccountQueries() {
 		try {
 			connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
 
@@ -72,9 +72,10 @@ public class PersonQueries {
 		return results;
 	} // end method getAllPeople
 
-	public List<Cuenta> getCuenta(int num) {
+	public Cuenta getCuenta(int num) {
 		List<Cuenta> results = null;
 		ResultSet resultSet = null;
+		Cuenta cuenta = null;
 		try {
 			selectAccount.setInt(1,num);
 			
@@ -85,7 +86,15 @@ public class PersonQueries {
 				results.add(
 						new Cuenta(resultSet.getInt("accountNumber"), resultSet.getInt("numberPersonalIdentification"),
 								resultSet.getDouble("availableBalance"), resultSet.getDouble("totalBalance")));
-			} // end while
+			}
+			
+			if (results.isEmpty() == true) // verificar si encontro la cuenta
+			{
+				cuenta = null;
+			}else
+			{
+				cuenta = results.get(0);
+			}
 		} catch (SQLException sqlException) {
 			sqlException.printStackTrace();
 		} // end catch
@@ -99,7 +108,7 @@ public class PersonQueries {
 			} // end catch
 		} // end finally
 
-		return results;
+		return cuenta;
 	} 
 	
 	public void close() {
