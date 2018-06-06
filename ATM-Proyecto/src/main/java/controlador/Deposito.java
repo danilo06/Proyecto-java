@@ -1,6 +1,6 @@
 package controlador;
 
-import modelo.BaseDatosBanco;
+import connection.AccountQueries;
 import modelo.Cuenta;
 import vista.Pantalla;
 import vista.Teclado;
@@ -13,6 +13,8 @@ public class Deposito extends Transaccion {
 	private Teclado teclado; // referencia al teclado
 	private RanuraDeposito ranuraDeposito; // referencia a la ranura de depósito
 	private final static int CANCELO = 0; // constante para la opción de cancelar
+	private int confirmarActualizacion = 0;
+	AccountQueries queries = new AccountQueries();
 
 	// constructor de Deposito
 	public Deposito(Cuenta cuenta, Pantalla pantallaATM, Teclado tecladoATM,
@@ -52,6 +54,7 @@ public class Deposito extends Transaccion {
 
 				// hace un abono a la cuenta para reflejar el depósito
 				cuenta.abonar(monto);
+				confirmarActualizacion = queries.setCuenta(cuenta.obtenerSaldoDisponible(), cuenta.obtenerSaldoTotal(), cuenta.obtenerNumeroCuenta());
 			} // fin de if
 			else // no se recibió el sobre de depósito
 			{

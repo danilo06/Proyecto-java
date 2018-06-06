@@ -20,7 +20,7 @@ public class AccountQueries {
 	private Connection connection = null; // manages connection
 	private PreparedStatement selectAllPeople = null;
 	private PreparedStatement selectAccount = null;
-
+	private PreparedStatement updateAccount = null;
 	// constructor
 	public AccountQueries() {
 		try {
@@ -29,10 +29,9 @@ public class AccountQueries {
 			// create query that selects all entries in the AddressBook
 			selectAllPeople = connection.prepareStatement("SELECT * FROM cuenta ORDER BY accountNumber");
 
-			// create query that selects entries with last names
-			// that begin with the specified characters
 			selectAccount = connection.prepareStatement("SELECT * FROM cuenta WHERE accountNumber  = ? ");
-
+			
+			updateAccount = connection.prepareStatement("UPDATE cuenta SET availableBalance = ?, totalBalance = ? WHERE accountNumber = ? ");
 		} // end try
 		catch (SQLException sqlException) {
 			sqlException.printStackTrace();
@@ -72,6 +71,22 @@ public class AccountQueries {
 		return results;
 	} // end method getAllPeople
 
+	public int setCuenta(double saldoDisponible, double saldoTotal, int numCuenta) {
+		int result = 0;
+		try {
+			updateAccount.setDouble(1, saldoDisponible);
+			updateAccount.setDouble(2, saldoTotal);
+			updateAccount.setInt(3, numCuenta);
+			
+			result = updateAccount.executeUpdate();
+		}
+		catch (SQLException sqlException) {
+			sqlException.printStackTrace();
+			close();
+		}
+		return result;
+	}
+	
 	public Cuenta getCuenta(int num) {
 		List<Cuenta> results = null;
 		ResultSet resultSet = null;
@@ -109,7 +124,7 @@ public class AccountQueries {
 		} // end finally
 
 		return cuenta;
-	} 
+	}
 	
 	public void close() {
 		try {

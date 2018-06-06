@@ -1,6 +1,8 @@
 package controlador;
 // Retiro.java
 
+import connection.AccountQueries;
+
 // Representa una transacción de retiro en el ATM
 
 import modelo.Cuenta;
@@ -11,6 +13,8 @@ public class Retiro extends Transaccion {
 	private int monto; // monto a retirar
 	private Teclado teclado; // referencia al teclado
 	private DispensadorEfectivo dispensadorEfectivo; // referencia al dispensador de efectivo
+	int confirmarActualizacion;
+	AccountQueries queries = new AccountQueries();
 
 	// constante que corresponde a la opción del menú a cancelar
 	private final static int CANCELO = 6;
@@ -50,6 +54,7 @@ public class Retiro extends Transaccion {
 					if (dispensadorEfectivo.haySuficienteEfectivoDisponible(monto)) {
 						// actualiza la cuenta implicada para reflejar el saldo
 						cuenta.cargar(monto);
+						confirmarActualizacion = queries.setCuenta(cuenta.obtenerSaldoDisponible(), cuenta.obtenerSaldoTotal(), cuenta.obtenerNumeroCuenta());
 
 						dispensadorEfectivo.dispensarEfectivo(monto); // dispensar efectivo
 						efectivoDispensado = true; // se dispensó el efectivo

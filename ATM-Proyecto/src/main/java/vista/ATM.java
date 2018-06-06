@@ -50,6 +50,7 @@ public class ATM {
 				pantalla.mostrarLineaMensaje("\nBienvenido!");
 				autenticarUsuario(); // autentica el usuario
 			} // fin de while
+			
 			realizarTransacciones(); // ahora el usuario está autenticado
 			usuarioAutenticado = false; // restablece antes de la siguiente sesión con el ATM
 			numeroCuentaActual = 0; // restablece antes de la siguiente sesión con el ATM
@@ -87,7 +88,6 @@ public class ATM {
 		// sistema
 		while (!usuarioSalio) {
 			// muestra el menú principal y obtiene la selección del usuario
-			cuentaActual = queries.getCuenta(numeroCuentaActual);
 			int seleccionMenuPrincipal = mostrarMenuPrincipal();
 
 			// decide cómo proceder, con base en la opción del menú seleccionada por el
@@ -99,6 +99,7 @@ public class ATM {
 			case DEPOSITO:
 
 				// inicializa como nuevo objeto del tipo elegido
+				cuentaActual = queries.getCuenta(numeroCuentaActual);
 				transaccionActual = crearTransaccion(seleccionMenuPrincipal);
 
 				transaccionActual.ejecutar(); // ejecuta la transacción
@@ -128,7 +129,6 @@ public class ATM {
 	// devuelve un objeto de la subclase especificada de Transaccion
 	private Transaccion crearTransaccion(int tipo) {
 		Transaccion temp = null; // variable temporal Transaccion
-
 		// determina qué tipo de Transaccion crear
 		switch (tipo) {
 		case SOLICITUD_SALDO: // crea una nueva transacción SolicitudSaldo
