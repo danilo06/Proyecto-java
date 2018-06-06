@@ -50,7 +50,6 @@ public class ATM {
 				pantalla.mostrarLineaMensaje("\nBienvenido!");
 				autenticarUsuario(); // autentica el usuario
 			} // fin de while
-			cuentaActual = queries.getCuenta(numeroCuentaActual);
 			realizarTransacciones(); // ahora el usuario está autenticado
 			usuarioAutenticado = false; // restablece antes de la siguiente sesión con el ATM
 			numeroCuentaActual = 0; // restablece antes de la siguiente sesión con el ATM
@@ -88,6 +87,7 @@ public class ATM {
 		// sistema
 		while (!usuarioSalio) {
 			// muestra el menú principal y obtiene la selección del usuario
+			cuentaActual = queries.getCuenta(numeroCuentaActual);
 			int seleccionMenuPrincipal = mostrarMenuPrincipal();
 
 			// decide cómo proceder, con base en la opción del menú seleccionada por el
