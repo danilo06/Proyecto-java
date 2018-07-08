@@ -1,4 +1,4 @@
-# Proyecto-java
+# Proyecto-java (Para utilizar ambos codigos es requerido modificar el acceso a la base de datos, de otra forma, por defecto,  no funcionara.) Para esto ajuste su base de datos al programa o modifiquelo para que funcione con una clase que almacene la informacion.
 ATm proyecto, corresponde a un codigo del libro Deitel - "Como programar en Java". 
 Este fue modificado para que funcionara con una Base de datos. 
 -----------------------------------
